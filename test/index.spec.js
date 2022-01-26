@@ -21,4 +21,8 @@ describe('add()', () => {
     it('takes any amount of numbers and returns their sum', function() {
         expect(this.subject.add('1,2,3,4,5')).to.eq(15)
     })
+
+    it('can accept a newline as the number separator', function() {
+        expect(this.subject.add('1\n4')).to.eq(5)
+    })
 })
