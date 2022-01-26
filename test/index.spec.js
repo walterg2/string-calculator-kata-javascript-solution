@@ -6,11 +6,15 @@ describe('add()', () => {
         this.subject = new StringCalculator()
     })
 
-    it('can take an empty string and return 0', function() {
+    it('takes an empty string and returns 0', function() {
         expect(this.subject.add('')).to.eq(0)
     })
 
-    it('can take a single number and return that number', function () {
+    it('takes a single number and returns that number', function() {
         expect(this.subject.add('3')).to.eq(3)
+    })
+
+    it('takes two numbers separated by a comma and returns their sum', function() {
+        expect(this.subject.add('2,3')).to.eq(5)
     })
 })
