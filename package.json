@@ -1,0 +1,23 @@
+{
+  "name": "string-calculator-kata-javascript-solution",
+  "version": "1.0.0",
+  "description": "Solution to the String Calculator Kata in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/walterg2/string-calculator-kata-javascript-solution.git"
+  },
+  "author": "George T. Walters II",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/walterg2/string-calculator-kata-javascript-solution/issues"
+  },
+  "homepage": "https://github.com/walterg2/string-calculator-kata-javascript-solution#readme",
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^9.2.0"
+  }
+}
