@@ -17,4 +17,8 @@ describe('add()', () => {
     it('takes two numbers separated by a comma and returns their sum', function() {
         expect(this.subject.add('2,3')).to.eq(5)
     })
+
+    it('takes any amount of numbers and returns their sum', function() {
+        expect(this.subject.add('1,2,3,4,5')).to.eq(15)
+    })
 })
