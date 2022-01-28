@@ -44,6 +44,12 @@ describe('StringCalculator', () => {
                     this.subject.add('1,3\n')
                 }).to.throw('Number expected but EOF found.')
             })
+
+            describe('custom', function() {
+                it('accepts an additional line that contains the separator to use', function () {
+                    expect(this.subject.add('//;\n1;2')).to.eq(3)
+                })
+            })
         })
     })
 })
