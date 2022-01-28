@@ -1,4 +1,6 @@
 const { expect } = require('chai')
+const NegativeNumbersFoundError = require('../lib/NegativeNumbersFoundError')
+const NumberNotFoundError = require('../lib/NumberNotFoundError')
 const StringCalculator = require('../lib/StringCalculator')
 
 describe('StringCalculator', () => {
@@ -36,19 +38,33 @@ describe('StringCalculator', () => {
             it('throws an error when the input ends in a comma', function () {
                 expect(() => {
                     this.subject.add('1,3,')
-                }).to.throw('Number expected but EOF found.')
+                }).to.throw(NumberNotFoundError, 'Number expected but EOF found.')
             })
 
             it('throws an error when the input ends in a new line', function () {
                 expect(() => {
                     this.subject.add('1,3\n')
-                }).to.throw('Number expected but EOF found.')
+                }).to.throw(NumberNotFoundError, 'Number expected but EOF found.')
             })
 
             describe('custom', function() {
                 it('accepts an additional line that contains the separator to use', function () {
                     expect(this.subject.add('//;\n1;2')).to.eq(3)
                 })
+            })
+        })
+
+        describe('negative numbers', function () {
+            it('throws an error when there is a negative number included', function () {
+                expect(() => {
+                    this.subject.add('-1,2')
+                }).to.throw(NegativeNumbersFoundError, 'Negative not allowed : -1')
+            })
+
+            it('throws an error with all negative numbers found', function () {
+                expect(() => {
+                    this.subject.add('2, -4, -5')
+                }).to.throw(NegativeNumbersFoundError, 'Negative not allowed : -4, -5')
             })
         })
     })
